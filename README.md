@@ -103,32 +103,36 @@ OKを押すとコード内でUnityEngineの機能が使用できるようにな�
 
 今回の場合は以下のようなコードになりました。  
 
-<code>
+
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;</code>
+using System.Threading.Tasks;
 
 using UnityEngine;
 
 namespace ClassLibrary1
 {
-  public class Class1 : MonoBehaviour
-  {
-    public static void Init()
+    public class Class1 : MonoBehaviour
     {
-      var go = new GameObject();
-      DontDestroyOnLoad(go);
-      go.AddComponent&lt;Class1&gt;();
-    }
+        public static void Init()
+        {
+            var go = new GameObject();
+            DontDestroyOnLoad(go);
+            go.AddComponent<Class1>();
+        }
 
-    void OnGUI()
-    {
-      GUI.TextArea(new Rect(10, 10, 300, 100), "Hello, Mod!");
+        void OnGUI()
+        {
+            GUI.TextArea(new Rect(10, 10, 300, 100), "Hello, Mod!");
+        }
     }
-  }
 }
+
+```
+
 
 エントリポイントとなる関数はInitです。  
 このInitをどうにかして呼び出してもらうことができれば画面にTextAreaを表示することができます。  
